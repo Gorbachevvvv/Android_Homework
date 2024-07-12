@@ -9,14 +9,12 @@
 
     <!-- Фоновое изображение -->
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
         android:src="@drawable/bubbles"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/backgroundimage" />
 
     <!-- Полупрозрачный LinearLayout в центре экрана -->
     <LinearLayout
@@ -25,10 +23,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/transparent_background"
         android:orientation="vertical"
-        android:padding="30dp"
+        android:padding="@dimen/padding_30"
         android:gravity="top"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/regButton"
+        app:layout_constraintBottom_toTopOf="@id/loginButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="32dp">
@@ -36,38 +34,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log in"
-            android:textSize="48sp"
+            android:text="@string/log_in"
+            android:textSize="@dimen/text_font_48"
             android:textColor="@android:color/black"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="@dimen/margin_16"/>
 
         <EditText
             android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Email"
-            android:textSize="20sp"
-            android:textColorHint="#99879D"
-            android:background="@drawable/edittext_background"
-            android:padding="16dp"
-            android:textColor="@color/black"
-            android:inputType="textEmailAddress"
-            android:layout_marginBottom="40dp"/>
+            android:hint="@string/email"
+            style="@style/edittext"/>
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
             android:hint="Password"
-            android:textSize="20sp"
-            android:textColorHint="#99879D"
-            android:background="@drawable/edittext_background"
-            android:textColor="@color/black"
-            android:padding="16dp"
-            android:inputType="textPassword"
-            android:layout_marginBottom="40dp"
-            />
+        android:inputType="textPassword"
+            style="@style/edittext" />
 
     </LinearLayout>
 
@@ -76,15 +58,12 @@
         android:id="@+id/loginButton"
         android:layout_width="263dp"
         android:layout_height="54dp"
-        android:background="@drawable/button_background"
-        android:text="Log in"
-        android:textSize="20sp"
-        android:textColor="#FFF"
+        android:text="@string/log_in"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomTextLayout"
-        android:layout_margin="16dp" />
+        style="@style/buttonreg" />
 
     <!-- Линейный лейаут для текста внизу -->
     <LinearLayout
@@ -100,12 +79,9 @@
 
         <TextView
             android:id="@+id/returntext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:text="Return to Sign-up"
-            android:textSize="17sp"
-            android:textColor="@color/black" />
+            android:text="@string/return_to_sign_up"
+            style="@style/thintext"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
