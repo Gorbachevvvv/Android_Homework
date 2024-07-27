@@ -64,7 +64,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomTextLayout"
         style="@style/buttonreg" />
-
+    <Button
+        android:id="@+id/goButton"
+        android:layout_width="263dp"
+        android:layout_height="54dp"
+        android:text="Go"
+        app:layout_constraintTop_toBottomOf="@id/loginButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomTextLayout"
+        style="@style/buttonreg" />
     <!-- Линейный лейаут для текста внизу -->
     <LinearLayout
         android:id="@+id/bottomTextLayout"

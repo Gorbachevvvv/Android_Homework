@@ -46,4 +46,12 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:scaleType">fitXY</item>
     </style>
+
+    <style name="datepicker">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_60</item>
+        <item name="android:calendarTextColor">@color/hint</item>
+        <item name="android:headerBackground">@color/edittext_bg</item>
+        <item name="android:yearListSelectorColor">@color/hint</item>
+    </style>
 </resources>
