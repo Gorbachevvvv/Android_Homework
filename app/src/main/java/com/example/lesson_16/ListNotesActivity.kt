@@ -4,12 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.lesson_16.databinding.ActivityListNotesBinding
-import com.example.lesson_16.databinding.ActivityWelcomeBinding
 
 class ListNotesActivity : AppCompatActivity() {
 
@@ -23,30 +20,29 @@ class ListNotesActivity : AppCompatActivity() {
             val intent = Intent(
                 this,
                 NoteActivity::class.java
-            ) // Переход на другую активность после успешного логина
+            )
             startActivity(intent)
         }
         binding.logoutTextView.setOnClickListener {
             val intent = Intent(
                 this,
                 LoginActivity::class.java
-            ) // Переход на другую активность после успешного логина
+            )
             startActivity(intent)
         }
-        setupRecyclerView()
+        setupListView()
     }
 
-    private fun setupRecyclerView() {
+    private fun setupListView() {
         val noteSingleton = NoteSingleton.getInstance()
         val notes = noteSingleton.getNotes()
 
-        binding.recyclerViewNotes.layoutManager = LinearLayoutManager(this)
-        binding.recyclerViewNotes.adapter = NotesAdapter(notes)
+        val adapter = NoteAdapter(this, notes)
+        binding.listViewNotes.adapter = adapter
     }
 
     override fun onResume() {
         super.onResume()
-        // Обновляем данные в RecyclerView при возврате к активности
-        setupRecyclerView()
+        setupListView()
     }
 }

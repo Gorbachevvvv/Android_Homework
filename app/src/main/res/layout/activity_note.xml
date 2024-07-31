@@ -71,10 +71,6 @@
             android:textColor="@color/black"
             android:layout_marginBottom="40dp"
             android:minHeight="300dp"/>
-
-       <DatePicker
-        android:id="@+id/datePicker"
-        style="@style/datepicker" />
     </LinearLayout>
 
     <!-- Кнопка "Add" -->

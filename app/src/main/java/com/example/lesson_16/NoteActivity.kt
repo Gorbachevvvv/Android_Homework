@@ -37,16 +37,13 @@ class NoteActivity: AppCompatActivity() {
             Toast.makeText(this, "Both fields are required", Toast.LENGTH_SHORT).show()
             return
         }
-        val day = binding.datePicker.dayOfMonth
-        val month = binding.datePicker.month
-        val year = binding.datePicker.year
 
+        // Получаем текущую дату и время
         val calendar = Calendar.getInstance()
-        calendar.set(year, month, day)
-
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
         val date = dateFormat.format(calendar.time)
 
+        // Создаем новую заметку с текущей датой и временем
         val note = Note(
             title = title,
             message = message,
