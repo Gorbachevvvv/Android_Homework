@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import android.widget.Toast
+import java.util.Calendar
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class NoteAdapter(private val context: Context, private val notes: List<Note>) : BaseAdapter() {
 
@@ -40,6 +43,23 @@ class NoteAdapter(private val context: Context, private val notes: List<Note>) :
         tvNoteTitle.text = note.title
         tvNoteMessage.text = note.message
         tvNoteDate.text = note.date
+
+        val currentDate = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }.time
+
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val noteDate = dateFormat.parse(note.date)
+
+        when{
+            noteDate == currentDate -> view.setBackgroundColor(context.resources.getColor(R.color.today_date))
+            noteDate.before(currentDate)-> view.setBackgroundColor(context.resources.getColor(R.color.past_date))
+            else -> view.setBackgroundColor(context.resources.getColor(R.color.white))
+        }
+
 
         tvNoteTitle.setOnClickListener {
             Toast.makeText(context, note.message, Toast.LENGTH_SHORT).show()
