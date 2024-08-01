@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.returntext.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)  // Не забывайте запускать активность
+            startActivity(intent)
         }
 
         binding.loginButton.setOnClickListener {
@@ -25,6 +25,10 @@ class LoginActivity : AppCompatActivity() {
                 val intent = Intent(this, WelcomeActivity::class.java) // Переход на другую активность после успешного логина
                 startActivity(intent)
             }
+        }
+        binding.goButton.setOnClickListener {
+            val intent = Intent(this, ListNotesActivity::class.java)
+            startActivity(intent)
         }
     }
 
