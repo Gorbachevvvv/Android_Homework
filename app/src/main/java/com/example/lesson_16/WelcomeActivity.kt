@@ -1,15 +1,13 @@
 package com.example.lesson_16
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.lesson_16.databinding.ActivityWelcomeBinding
 
-class WelcomeActivity: AppCompatActivity() {
+class WelcomeActivity : AppCompatActivity() {
 
     private val binding by viewBinding<ActivityWelcomeBinding>(CreateMethod.INFLATE)
 
@@ -17,13 +15,36 @@ class WelcomeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.regButton.setOnClickListener {
-            val intent = Intent(this,SignUpActivity::class.java)
-            startActivity(intent)
+        setupViewPager()
+
+        if (savedInstanceState == null) {
+
         }
-        binding.linearLayout.setOnClickListener{
-            val intent = Intent(this,LoginActivity::class.java)
-            startActivity(intent)
-        }
+    }
+
+    private fun setupViewPager() {
+        val viewPager = binding.viewPager
+        val adapter = ViewPagerAdapter(this)
+        viewPager.adapter = adapter
+
+
+
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == adapter.itemCount -1 ) {
+                    viewPager.post {
+                        navigateToFragment(WelcomeFragment())
+                    }
+                }
+            }
+        })
+    }
+
+    fun navigateToFragment(fragment: androidx.fragment.app.Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

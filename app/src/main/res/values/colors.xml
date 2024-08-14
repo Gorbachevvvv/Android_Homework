@@ -8,4 +8,6 @@
     <color name="table_transparent_bg">#CBFFFFFF</color>
     <color name="button_darkpurple">#3700B3</color>
     <color name="button_purple">#6200EE</color>
+    <color name="past_date">#F8C1C1</color>
+    <color name="today_date">#C8E6C9</color>
 </resources>

@@ -5,16 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".SignUpActivity">
+    tools:context=".LoginFragment">
 
     <ImageView
-        style="@style/backgroundimage"
         android:src="@drawable/bubbles"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/backgroundimage" />
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -24,29 +23,19 @@
         android:padding="@dimen/padding_30"
         android:gravity="top"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/regButton"
+        app:layout_constraintBottom_toTopOf="@id/loginButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/padding_30">
+        android:layout_margin="32dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up"
+            android:text="@string/log_in"
             android:textSize="@dimen/text_font_48"
             android:textColor="@android:color/black"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/margin_48"/>
-
-        <EditText
-            android:id="@+id/firstNameEditText"
-            android:hint="@string/first_name"
-            style="@style/edittext"/>
-
-        <EditText
-            android:id="@+id/lastNameEditText"
-            android:hint="@string/last_name"
-            style="@style/edittext"/>
+            android:layout_marginBottom="@dimen/margin_16"/>
 
         <EditText
             android:id="@+id/emailEditText"
@@ -55,26 +44,21 @@
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:hint="@string/password"
+            android:hint="Password"
             android:inputType="textPassword"
-            style="@style/edittext"
-            />
+            style="@style/edittext" />
 
     </LinearLayout>
-
-    <!-- Кнопка регистрации -->
     <Button
-        android:id="@+id/regButton"
+        android:id="@+id/loginButton"
         android:layout_width="263dp"
         android:layout_height="54dp"
-        android:text="@string/sign_up"
+        android:text="@string/log_in"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomTextLayout"
         style="@style/buttonreg" />
-
-    <!-- Линейный лейаут для текста внизу -->
     <LinearLayout
         android:id="@+id/bottomTextLayout"
         android:layout_width="wrap_content"
@@ -87,15 +71,10 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/textView1"
-            android:text="@string/you_have_an_account"
-            style="@style/thintext" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:text="@string/log_in"
-            style="@style/boldtext" />
-
+            android:id="@+id/returntext"
+            android:text="@string/return_to_sign_up"
+            style="@style/thintext"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
