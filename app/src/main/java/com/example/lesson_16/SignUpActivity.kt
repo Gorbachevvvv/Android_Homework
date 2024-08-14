@@ -15,7 +15,6 @@ class SignUpActivity:AppCompatActivity() {
         setContentView(binding.root)
         binding.regButton.setOnClickListener {
             if (validateInput()) {
-                // Если все поля прошли валидацию, выполните вашу логику регистрации
                 val intent = Intent(this, SignUpActivity::class.java)
                 startActivity(intent)
         }

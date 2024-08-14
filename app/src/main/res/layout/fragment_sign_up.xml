@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".SignUpActivity">
+    tools:context=".SignUpFragment">
+
 
     <ImageView
         style="@style/backgroundimage"
@@ -14,6 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -62,7 +64,7 @@
 
     </LinearLayout>
 
-    <!-- Кнопка регистрации -->
+
     <Button
         android:id="@+id/regButton"
         android:layout_width="263dp"
@@ -74,7 +76,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomTextLayout"
         style="@style/buttonreg" />
 
-    <!-- Линейный лейаут для текста внизу -->
+
     <LinearLayout
         android:id="@+id/bottomTextLayout"
         android:layout_width="wrap_content"
