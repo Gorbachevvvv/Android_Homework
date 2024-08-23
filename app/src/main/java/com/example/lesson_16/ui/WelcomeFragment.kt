@@ -1,23 +1,24 @@
-package com.example.lesson_16
+package com.example.lesson_16.ui
 
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.lesson_16.databinding.FragmentSignUpBinding
+import com.example.lesson_16.databinding.FragmentWelcomeBinding
+import com.example.lesson_16.ui.reg.LoginFragment
+import com.example.lesson_16.ui.reg.SignUpFragment
 
-class SignUpFragment : Fragment() {
+class WelcomeFragment : Fragment() {
 
-    private var _binding: FragmentSignUpBinding? = null
+    private var _binding: FragmentWelcomeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -25,17 +26,12 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.regButton.setOnClickListener {
-            if (validateInput()) {
-                (activity as? WelcomeActivity)?.navigateToFragment(ListNotesFragment())
-            }
+            (activity as? WelcomeActivity)?.navigateToFragment(SignUpFragment())
         }
-        binding.textView2.setOnClickListener {
+
+        binding.linearLayout.setOnClickListener {
             (activity as? WelcomeActivity)?.navigateToFragment(LoginFragment())
         }
-    }
-
-    private fun validateInput(): Boolean {
-        return true
     }
 
     override fun onDestroyView() {

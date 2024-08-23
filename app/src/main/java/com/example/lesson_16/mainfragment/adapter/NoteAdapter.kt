@@ -1,4 +1,4 @@
-package com.example.lesson_16
+package com.example.lesson_16.mainfragment.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import android.widget.Toast
+import com.example.lesson_16.R
+import com.example.lesson_16.data.Note
 import java.util.Calendar
 import java.text.SimpleDateFormat
 import java.util.Locale

@@ -1,12 +1,14 @@
-package com.example.lesson_16
+package com.example.lesson_16.ui.notes
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.lesson_16.mainfragment.adapter.NoteAdapter
+import com.example.lesson_16.data.NoteSingleton
 import com.example.lesson_16.databinding.ActivityListNotesBinding
+import com.example.lesson_16.ui.reg.LoginActivity
 
 class ListNotesActivity : AppCompatActivity() {
 
@@ -35,7 +37,7 @@ class ListNotesActivity : AppCompatActivity() {
 
     private fun setupListView() {
         val noteSingleton = NoteSingleton.getInstance()
-        val notes = noteSingleton.getNotes()
+        val notes = NoteSingleton.getNotes()
 
         val adapter = NoteAdapter(this, notes)
         binding.listViewNotes.adapter = adapter

@@ -1,37 +1,35 @@
-package com.example.lesson_16
+package com.example.lesson_16.ui.notes
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import com.example.lesson_16.databinding.FragmentNoteBinding
+import androidx.appcompat.app.AppCompatActivity
+import by.kirich1409.viewbindingdelegate.CreateMethod
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.lesson_16.data.Note
+import com.example.lesson_16.data.NoteSingleton
+import com.example.lesson_16.databinding.ActivityNoteBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class NoteFragment : Fragment() {
+class NoteActivity : AppCompatActivity() {
 
-    private var _binding: FragmentNoteBinding? = null
-    private val binding get() = _binding!!
+    private val binding by viewBinding<ActivityNoteBinding>(CreateMethod.INFLATE)
 
     private var datePicked = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentNoteBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
 
         binding.backTextView.setOnClickListener {
-            (activity as? WelcomeActivity)?.navigateToFragment(ListNotesFragment())
+            val intent = Intent(
+                this,
+                ListNotesActivity::class.java
+            )
+            startActivity(intent)
         }
         binding.addButton.setOnClickListener {
             addNote()
@@ -50,7 +48,7 @@ class NoteFragment : Fragment() {
         val title = binding.titleEditText.text.toString()
         val message = binding.messageEditText.text.toString()
         if (TextUtils.isEmpty(title) || TextUtils.isEmpty(message)) {
-            Toast.makeText(context, "Both fields are required", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Both fields are required", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -71,13 +69,7 @@ class NoteFragment : Fragment() {
             date = date
         )
         NoteSingleton.addNote(note)
-        Toast.makeText(context, "Note added", Toast.LENGTH_SHORT).show()
-
-        (activity as? WelcomeActivity)?.navigateToFragment(ListNotesFragment())
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        Toast.makeText(this, "Note added", Toast.LENGTH_SHORT).show()
+        finish()
     }
 }

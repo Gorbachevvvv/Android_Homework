@@ -1,38 +1,34 @@
-package com.example.lesson_16
+package com.example.lesson_16.ui.pages
 
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.lesson_16.databinding.FragmentLoginBinding
+import com.example.lesson_16.R
+import com.example.lesson_16.databinding.FragmentFirstPageBinding
+import com.example.lesson_16.ui.WelcomeActivity
+import com.example.lesson_16.ui.WelcomeFragment
 
-class LoginFragment : Fragment() {
+class FirstPageFragment : Fragment(R.layout.fragment_first_page) {
 
-    private var _binding: FragmentLoginBinding? = null
+    private var _binding: FragmentFirstPageBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentFirstPageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.loginButton.setOnClickListener {
-            if (validateInput()) {
-                (activity as? WelcomeActivity)?.navigateToFragment(ListNotesFragment())
-            }
+        binding.Skip.setOnClickListener {
+            (activity as? WelcomeActivity)?.navigateToFragment(WelcomeFragment())
         }
-    }
-
-    private fun validateInput(): Boolean {
-        return true
     }
 
     override fun onDestroyView() {

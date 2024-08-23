@@ -1,23 +1,25 @@
-package com.example.lesson_16
+package com.example.lesson_16.ui.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.lesson_16.databinding.FragmentFirstPageBinding
+import com.example.lesson_16.R
 import com.example.lesson_16.databinding.FragmentThirdPageBinding
+import com.example.lesson_16.ui.WelcomeActivity
+import com.example.lesson_16.ui.WelcomeFragment
 
-class FirstPageFragment : Fragment(R.layout.fragment_first_page) {
+class ThirdPageFragment : Fragment(R.layout.fragment_third_page) {
 
-    private var _binding: FragmentFirstPageBinding? = null
+    private var _binding: FragmentThirdPageBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFirstPageBinding.inflate(inflater, container, false)
+        _binding = FragmentThirdPageBinding.inflate(inflater, container, false)
         return binding.root
     }
 

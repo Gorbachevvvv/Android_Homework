@@ -1,4 +1,4 @@
-package com.example.lesson_16
+package com.example.lesson_16.ui.reg
 
 import android.content.Intent
 import android.os.Bundle
@@ -20,7 +20,7 @@ class SignUpActivity:AppCompatActivity() {
         }
     }
         binding.textView2.setOnClickListener{
-            val intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

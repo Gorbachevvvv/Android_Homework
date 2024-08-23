@@ -1,4 +1,4 @@
-package com.example.lesson_16
+package com.example.lesson_16.data
 
 object NoteSingleton {
     private val notes = mutableListOf<Note>()

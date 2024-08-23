@@ -1,4 +1,4 @@
-package com.example.lesson_16
+package com.example.lesson_16.ui.reg
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.lesson_16.databinding.ActivityLoginBinding
+import com.example.lesson_16.ui.WelcomeActivity
+import com.example.lesson_16.ui.notes.ListNotesActivity
 
 class LoginActivity : AppCompatActivity() {
     private val binding by viewBinding<ActivityLoginBinding>(CreateMethod.INFLATE)
